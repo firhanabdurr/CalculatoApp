@@ -1,4 +1,4 @@
-package com.firhan.calculator.feature.calculator.domain.usecase;
+package com.firhan.calculator.feature.calculator.domain.usecase
 
 import com.firhan.calculator.feature.calculator.domain.model.CalculatorOperation
 
