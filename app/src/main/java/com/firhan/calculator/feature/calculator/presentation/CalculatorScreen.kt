@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -22,12 +23,20 @@ fun CalculatorScreen(
 ) {
     val buttonSpacing = 8.dp
 
+//    // 2. Deteksi orientasi layar saat ini
+//    val configuration = LocalConfiguration.current
+//    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+//
+//    // 3. Sesuaikan jarak dan ukuran font otomatis
+//    val buttonSpacing = if (isLandscape) 4.dp else 8.dp
+//    val displayFontSize = if (isLandscape) 48.sp else 80.sp
+
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(Color.Black)
             .padding(16.dp),
-        verticalArrangement = Arrangement.Bottom // Dorong tombol ke bawah
+        verticalArrangement = Arrangement.Bottom
     ) {
         // --- DISPLAY AREA ---
         Text(
@@ -52,7 +61,7 @@ fun CalculatorScreen(
                 backgroundColor = Color.LightGray,
                 textColor = Color.Black,
                 modifier = Modifier
-                    .aspectRatio(2f) // Bikin tombolnya lebih lebar
+                    .aspectRatio(2f)
                     .weight(2f),
                 onClick = { onEvent(CalculatorEvent.Clear) }
             )
@@ -67,7 +76,7 @@ fun CalculatorScreen(
             )
             CalculatorButton(
                 symbol = "÷",
-                backgroundColor = Color(0xFFFF9800), // Warna Orange
+                backgroundColor = Color(0xFFFF9800),
                 modifier = Modifier
                     .aspectRatio(1f)
                     .weight(1f),
